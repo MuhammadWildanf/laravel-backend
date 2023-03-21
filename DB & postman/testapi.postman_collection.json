@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "b697cfa2-5d8d-4812-8d87-11f2e21826a4",
+		"name": "testapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22350871"
+	},
+	"item": [
+		{
+			"name": "table",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "draw",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "length",
+							"value": "5",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "column",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "dir",
+							"value": "asc",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "bank_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "Status",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://149.129.221.143/kanaldata/Webservice/bank_account",
+					"protocol": "http",
+					"host": [
+						"149",
+						"129",
+						"221",
+						"143"
+					],
+					"path": [
+						"kanaldata",
+						"Webservice",
+						"bank_account"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
