@@ -36,11 +36,14 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed'
         ]);
-        $array = $request->only([
-            'name', 'email', 'password'
+       
+        $request['password'] = bcrypt($request['password']);
+        $user = User::create([
+            'name' => $request->name,
+            'email'=> $request->email,
+            'password' => $request->password,
+            'status' => 0 , 
         ]);
-        $array['password'] = bcrypt($array['password']);
-        $user = User::create($array);
         return redirect()->route('users.index')
             ->with('success_message', 'Berhasil menambah user baru');
     }
@@ -79,6 +82,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->status = 0;
         if ($request->password) $user->password = bcrypt($request->password);
         $user->save();
         return redirect()->route('users.index')
